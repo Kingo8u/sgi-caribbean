@@ -312,8 +312,8 @@
 <div class="map-section">
   <div class="territory-index">
     <div class="territory-index-head">
-      <span class="territory-index-title">Territories</span>
-      <span class="territory-index-hint">Hover to locate · click to connect</span>
+      <span class="territory-index-title" id="listTitle">Countries and Territories</span>
+      <span class="territory-index-hint" id="listHint">Hover to locate · click to connect</span>
     </div>
     <div class="territory-grid" id="territoryGrid"></div>
   </div>
@@ -424,11 +424,11 @@
     <div class="map-legend">
       <div class="legend-item">
         <div class="legend-swatch"></div>
-        <span class="legend-label">SGI-USA Territory — click to connect</span>
+        <span class="legend-label" id="legendOrg">SGI-USA Organization — Click to Connect</span>
       </div>
       <div class="legend-item">
         <div class="legend-swatch bg"></div>
-        <span class="legend-label" style="color:rgba(255,255,255,0.3)">Other country</span>
+        <span class="legend-label" id="legendOther" style="color:rgba(255,255,255,0.3)">Other country</span>
       </div>
       <span class="legend-count">21 territories · Natural Earth geographic data</span>
     </div>
@@ -490,13 +490,13 @@
     <div class="success-panel" id="successPanel">
       <div class="success-icon">✓</div>
       <h4 id="successTitle">Message Sent!</h4>
-      <p id="successMsg">Your message has been routed to the SGI-USA contact for this territory. A member of the Caribbean Region team has also been copied. Nam-myoho-renge-kyo.</p>
+      <p id="successMsg">Thank you — your message has been received by the SGI-USA Caribbean Region team and will be routed to the contact for your territory.</p>
     </div>
   </div>
 </div>
 
 <!-- ─── FOOTER ─── -->
-<footer>
+<footer id="footer">
   <span>SGI-USA</span> · Caribbean Region Outreach · <span>Soka Gakkai International</span>
 </footer>
 
@@ -507,78 +507,108 @@ const T = {
     heroTitle: ["Connect With ", "SGI-USA", " Across the Caribbean"],
     heroSub: "Select your language above, then hover over any territory to learn more and reach out to your local SGI-USA contact.",
     instr: "Hover over a country · Click to open contact form",
+    listTitle: "Countries and Territories",
+    listHint: "Hover to locate · click to connect",
+    legendOrg: "SGI-USA Organization — Click to Connect",
+    legendOther: "Other country",
+    footerHtml: "<span>SGI-USA</span> · Caribbean Region Outreach · <span>Soka Gakkai International</span>",
     modalSubtitle: "Caribbean Region · Reach Your Local Contact",
     routingText: "This message will be sent to the SGI-USA contact for this territory and copied to the Caribbean Region team.",
     lFirstName: "First Name", lLastName: "Last Name", lEmail: "Email Address",
     lPhone: "Phone (optional)", lTopic: "Topic / Subject", lMessage: "Message",
     topicOpts: ["— Select —","General Inquiry","Study Group / Meeting","Resources & Literature","Events & Activities","Membership"],
     submitBtn: "Send Message", successTitle: "Message Sent!",
-    successMsg: "Your message has been routed to the SGI-USA contact for this territory. A member of the Caribbean Region team has also been copied. Nam-myoho-renge-kyo."
+    successMsg: "Thank you — your message has been received by the SGI-USA Caribbean Region team and will be routed to the contact for your territory."
   },
   es: {
     eyebrow: "Región del Caribe · Soka Gakkai Internacional",
     heroTitle: ["Conecta Con ", "SGI-USA", " en el Caribe"],
     heroSub: "Selecciona tu idioma arriba, luego pasa el cursor sobre cualquier territorio para contactar a tu representante local de SGI-USA.",
     instr: "Pasa el cursor sobre un país · Haz clic para abrir el formulario",
+    listTitle: "Países y Territorios",
+    listHint: "Pasa el cursor para ubicar · haz clic para conectar",
+    legendOrg: "Organización SGI-USA — Haz clic para conectar",
+    legendOther: "Otro país",
+    footerHtml: "<span>SGI-USA</span> · Alcance de la Región Caribeña · <span>Soka Gakkai International</span>",
     modalSubtitle: "Región Caribeña · Contacta a tu representante local",
     routingText: "Este mensaje será enviado al contacto de SGI-USA para este territorio y copiado al equipo de la Región Caribeña.",
     lFirstName: "Nombre", lLastName: "Apellido", lEmail: "Correo Electrónico",
     lPhone: "Teléfono (opcional)", lTopic: "Tema / Asunto", lMessage: "Mensaje",
     topicOpts: ["— Seleccionar —","Consulta General","Grupo de Estudio / Reunión","Recursos y Literatura","Eventos y Actividades","Membresía"],
     submitBtn: "Enviar Mensaje", successTitle: "¡Mensaje Enviado!",
-    successMsg: "Tu mensaje ha sido enviado al contacto de SGI-USA para este territorio. El equipo regional del Caribe también ha sido copiado. Nam-myoho-renge-kyo."
+    successMsg: "Gracias — tu mensaje ha sido recibido por el equipo de la Región del Caribe de SGI-USA y será dirigido al contacto de tu territorio."
   },
   fr: {
     eyebrow: "Région des Caraïbes · Soka Gakkai International",
     heroTitle: ["Rejoindre ", "SGI-USA", " dans les Caraïbes"],
     heroSub: "Sélectionnez votre langue ci-dessus, puis survolez un territoire pour contacter votre responsable SGI-USA local.",
     instr: "Survolez un pays · Cliquez pour ouvrir le formulaire",
+    listTitle: "Pays et Territoires",
+    listHint: "Survolez pour localiser · cliquez pour contacter",
+    legendOrg: "Organisation SGI-USA — Cliquez pour contacter",
+    legendOther: "Autre pays",
+    footerHtml: "<span>SGI-USA</span> · Rayonnement de la Région des Caraïbes · <span>Soka Gakkai International</span>",
     modalSubtitle: "Région Caraïbes · Contacter votre correspondant local",
     routingText: "Ce message sera transmis au contact SGI-USA de ce territoire et copié à l'équipe régionale des Caraïbes.",
     lFirstName: "Prénom", lLastName: "Nom", lEmail: "Adresse e-mail",
     lPhone: "Téléphone (optionnel)", lTopic: "Sujet", lMessage: "Message",
     topicOpts: ["— Sélectionner —","Demande Générale","Groupe d'Étude / Réunion","Ressources et Littérature","Événements","Adhésion"],
     submitBtn: "Envoyer", successTitle: "Message Envoyé !",
-    successMsg: "Votre message a été transmis au contact SGI-USA pour ce territoire. L'équipe régionale des Caraïbes a également été mise en copie. Nam-myoho-renge-kyo."
+    successMsg: "Merci — votre message a été reçu par l'équipe de la Région des Caraïbes de SGI-USA et sera transmis au contact de votre territoire."
   },
   ht: {
     eyebrow: "Rejyon Karayib · Soka Gakkai Entènasyonal",
     heroTitle: ["Kontakte ", "SGI-USA", " nan Karayib"],
     heroSub: "Chwazi lang ou anlè a, epi pase sourit ou sou nenpòt teritwa pou kontakte responsab SGI-USA lokal ou a.",
     instr: "Pase souri sou yon peyi · Klike pou ouvri fòm",
+    listTitle: "Peyi ak Teritwa",
+    listHint: "Pase souri pou lokalize · klike pou konekte",
+    legendOrg: "Òganizasyon SGI-USA — Klike pou konekte",
+    legendOther: "Lòt peyi",
+    footerHtml: "<span>SGI-USA</span> · Sansibilizasyon Rejyon Karayib · <span>Soka Gakkai International</span>",
     modalSubtitle: "Rejyon Karayib · Kontakte responsab lokal ou",
     routingText: "Mesaj sa a pral voye bay kontak SGI-USA pou teritwa sa a epi ekip rejyonal Karayib la pral resevwa yon kopi.",
     lFirstName: "Prenon", lLastName: "Siyati", lEmail: "Adrès Imèl",
     lPhone: "Telefòn (opsyonèl)", lTopic: "Sijè", lMessage: "Mesaj",
     topicOpts: ["— Chwazi —","Demann Jeneral","Gwoup Etid / Reyinyon","Resous & Literati","Evènman","Manm"],
     submitBtn: "Voye Mesaj", successTitle: "Mesaj Voye!",
-    successMsg: "Mesaj ou a te voye bay kontak SGI-USA pou teritwa sa a. Ekip rejyonal Karayib la resevwa yon kopi tou. Nam-myoho-renge-kyo."
+    successMsg: "Mèsi — ekip Rejyon Karayib SGI-USA a resevwa mesaj ou a, epi y ap voye l bay kontak teritwa ou a."
   },
   pap: {
     eyebrow: "Región Caribe · Soka Gakkai Internacional",
     heroTitle: ["Konektá ku ", "SGI-USA", " den Karibe"],
     heroSub: "Skoché bo idioma ariba, despues hover riba un teritorio pa kontaktá bo representante lokal di SGI-USA.",
     instr: "Hover riba un pais · Klik pa habri formulario",
+    listTitle: "Paisnan i Teritorionan",
+    listHint: "Hover pa lokalisá · klik pa konektá",
+    legendOrg: "Organisashon SGI-USA — Klik pa konektá",
+    legendOther: "Otro pais",
+    footerHtml: "<span>SGI-USA</span> · Alkanse di Region Karibe · <span>Soka Gakkai International</span>",
     modalSubtitle: "Región Karibe · Kontaktá bo representante lokal",
     routingText: "E mensahe aki lo manda na e kontakto di SGI-USA pa e teritorio aki i lo kopia e tim regional di Karibe.",
     lFirstName: "Nòmber", lLastName: "Fámia", lEmail: "Adrès di Imèl",
     lPhone: "Telefòn (opsional)", lTopic: "Tema / Asunto", lMessage: "Mensahe",
     topicOpts: ["— Skoché —","Pregunta General","Grupo di Estudio","Rekurso & Literatura","Aktividatnan","Membresia"],
     submitBtn: "Manda Mensahe", successTitle: "Mensahe Manda!",
-    successMsg: "Bo mensahe a manda na e kontakto di SGI-USA pa e teritorio. E tim regional di Karibe a recibi un kopia tambe. Nam-myoho-renge-kyo."
+    successMsg: "Danki — e tim di Region Karibe di SGI-USA a risibí bo mensahe i lo mandé na e kontakto di bo teritorio."
   },
   nl: {
     eyebrow: "Caribisch Gebied · Soka Gakkai Internationaal",
     heroTitle: ["Verbinding Met ", "SGI-USA", " in het Caribisch Gebied"],
     heroSub: "Selecteer uw taal hierboven en beweeg vervolgens over een gebied om contact op te nemen met uw lokale SGI-USA-contactpersoon.",
     instr: "Hover over een land · Klik om contactformulier te openen",
+    listTitle: "Landen en Gebieden",
+    listHint: "Beweeg om te lokaliseren · klik om contact te leggen",
+    legendOrg: "SGI-USA-organisatie — Klik om contact te leggen",
+    legendOther: "Ander land",
+    footerHtml: "<span>SGI-USA</span> · Caribisch Gebied Outreach · <span>Soka Gakkai International</span>",
     modalSubtitle: "Caribisch Gebied · Neem contact op met uw lokale vertegenwoordiger",
     routingText: "Dit bericht wordt doorgestuurd naar de SGI-USA-contactpersoon voor dit gebied en gekopieerd naar het regionale team.",
     lFirstName: "Voornaam", lLastName: "Achternaam", lEmail: "E-mailadres",
     lPhone: "Telefoon (optioneel)", lTopic: "Onderwerp", lMessage: "Bericht",
     topicOpts: ["— Selecteren —","Algemene vraag","Studiegroep / Bijeenkomst","Bronnen & Literatuur","Evenementen","Lidmaatschap"],
     submitBtn: "Bericht Verzenden", successTitle: "Bericht Verzonden!",
-    successMsg: "Uw bericht is doorgestuurd naar de SGI-USA-contactpersoon voor dit gebied. Het regionale team heeft ook een kopie ontvangen. Nam-myoho-renge-kyo."
+    successMsg: "Bedankt — uw bericht is ontvangen door het SGI-USA Caribische Regioteam en wordt doorgestuurd naar de contactpersoon voor uw gebied."
   }
 };
 
@@ -594,6 +624,13 @@ function setLang(lang) {
   ht.innerHTML = t.heroTitle[0] + `<span>${t.heroTitle[1]}</span>` + '<br>' + t.heroTitle[2];
   document.getElementById('heroSub').textContent = t.heroSub;
   document.getElementById('instrText').textContent = t.instr;
+  const setText = (id, val) => { const el = document.getElementById(id); if (el && val) el.textContent = val; };
+  setText('listTitle', t.listTitle);
+  setText('listHint', t.listHint);
+  setText('legendOrg', t.legendOrg);
+  setText('legendOther', t.legendOther);
+  const footer = document.getElementById('footer');
+  if (footer && t.footerHtml) footer.innerHTML = t.footerHtml;
 }
 
 function highlightOn(el) {
@@ -666,6 +703,7 @@ document.getElementById('caribbeanMap').addEventListener('mousemove', moveTip);
 
 function openForm(country, email, cc) {
   const t = T[currentLang];
+  window.activeTerritory = { country: country, email: email, cc: cc };
   document.getElementById('modalTitle').textContent = country;
   document.getElementById('modalSubtitle').textContent = t.modalSubtitle;
   document.getElementById('routingText').textContent = t.routingText;
@@ -697,11 +735,59 @@ function submitForm() {
     });
     return;
   }
-  document.getElementById('formBody').style.display = 'none';
-  const sp = document.getElementById('successPanel');
-  sp.classList.add('show');
-  document.getElementById('successTitle').textContent = t.successTitle;
-  document.getElementById('successMsg').textContent = t.successMsg;
+
+  const terr = window.activeTerritory || { country: '', email: '', cc: '' };
+  const phone = document.getElementById('phone').value.trim();
+  const topicSel = document.getElementById('topic');
+  const topic = topicSel.options[topicSel.selectedIndex] ? topicSel.options[topicSel.selectedIndex].text : '';
+  const msg = document.getElementById('message').value.trim();
+
+  const btn = document.getElementById('submitBtn');
+  const btnLabel = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '…';
+
+  const payload = {
+    access_key: '3962ee41-6ad8-44c2-a671-04a4d4999fe8',
+    subject: 'SGI-USA Caribbean — ' + (terr.country || 'Inquiry') + ' (' + (topic || 'General') + ')',
+    from_name: 'SGI-USA Caribbean Map',
+    ccemail: 'cushtac_59@yahoo.com;mysticthai7@gmail.com;anamarialombardi.sgi@gmail.com;albadive@gmail.com;kaieem@outlook.com;v.gitpanill@gmail.com;fruitej@gmail.com;abe.uccello@gmail.com',
+    replyto: em,
+    name: fn + ' ' + ln,
+    email: em,
+    phone: phone,
+    territory: terr.country,
+    territory_contact: terr.email,
+    territory_cc: terr.cc,
+    topic: topic,
+    message: msg,
+    botcheck: ''
+  };
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.success) {
+      document.getElementById('formBody').style.display = 'none';
+      const sp = document.getElementById('successPanel');
+      sp.classList.add('show');
+      document.getElementById('successTitle').textContent = t.successTitle;
+      document.getElementById('successMsg').textContent = t.successMsg;
+    } else {
+      btn.disabled = false;
+      btn.textContent = btnLabel;
+      alert('Sorry, the message could not be sent. Please try again or email ' + (terr.email || 'the territory contact') + ' directly.');
+    }
+  })
+  .catch(() => {
+    btn.disabled = false;
+    btn.textContent = btnLabel;
+    alert('Sorry, the message could not be sent. Please check your connection and try again.');
+  });
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeForm(); });
 </script>
